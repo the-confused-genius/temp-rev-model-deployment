@@ -8,7 +8,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/pred', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    return render_template('templates\index.html')
 
 
 @app.route('/predict', methods=['GET', 'POST'])
@@ -16,7 +16,7 @@ def predict():
     if request.method == "POST":
         prediction = model.predict([[int(request.form.get('temperature'))]])
         output = round(prediction[0], 2)
-        return render_template('index.html', prediction_text=f'The Predicted Revenue is Rs. {output}/-')
+        return render_template('templates\index.html', prediction_text=f'The Predicted Revenue is Rs. {output}/-')
 
 
 if __name__ == '__main__':
