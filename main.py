@@ -8,7 +8,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('templates\index.html')
+    return render_template('index.html')
 
 
 @app.route('/predict', methods=['GET', 'POST'])
